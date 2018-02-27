@@ -1,5 +1,4 @@
 # SWAP1718
-####Javier Prieto Infante 3º GII TIC Grupo2
 ## **Práctica1 : Preparación de las herramientas**    
 ***
 El objetivo de la práctica1 es configurar dos máquinas (servidores) con Ubuntu Server para trabajar en prácticas posteriores.     
