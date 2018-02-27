@@ -19,22 +19,22 @@ Como resultado en cada máquina aparecen dos interfaces de red:
 Despues he asignado la IP fija a la interfaz enp0s8.   
 Mediante : `sudo nano /etc/network/interfaces` 
 
-![Configuracion de red](/imagenes/etc-network-interfaces.png)
+![Configuracion de red](imagenes/etc-network-interfaces.png)
 
 Una vez hecho este cambio debemos reiniciar y obtendremos las siguientes interfaces de red.    
 Haciendo: `ifconfig -a`
 
-![Interfaces de red](/imagenes/ifconfig.png)
+![Interfaces de red](imagenes/ifconfig.png)
 
 Una vez instalado los servidores y cambiadas la configuración de su red, comprobamos la versión del servidor y que apache está ejecutandose:
 
-![Apache](/imagenes/apache.png)
+![Apache](imagenes/apache.png)
 
 Para ver que Apache está funcionando, usando un editor de texto plano, crearemos el archivo HTML llamado hola.html en el directorio /var/www/html. Y mediante curl accedemos a el.
 
-![cURL](/imagenes/curl.png)
+![cURL](imagenes/curl.png)
 
 Como en la instalación indicamos la instalación de SSH, a continuación muestro la conexión entre máquinas mediante SSH (de una máquina a la otra):
 
-![SSH](/imagenes/ssh.png)
+![SSH](imagenes/ssh.png)
 
