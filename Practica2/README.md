@@ -1,6 +1,6 @@
 # SWAP1718
 ## **Práctica2 : Clonar la información de un sitio web**    
-***
+
 El objetivo de la práctica2 es aprender copiar archivos con ssh, clonar contendido entre máquinas, configurar ssh para acceder
 a máquinas remotas sin contraseña y establecer tareas con cron.     
 
