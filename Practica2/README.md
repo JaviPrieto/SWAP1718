@@ -6,7 +6,7 @@ a máquinas remotas sin contraseña y establecer tareas con cron.
 
 Para ello lo que he hecho ha sido: 
 
-### **Copiar archivos con SSH    
+### Copiar archivos con SSH    
 ***
 Para copiar archivos entre una máquina y otra mediante *ssh* usamos el siguiente comando:
 
@@ -18,7 +18,7 @@ Con esto lo que conseguimos es comprimir el contenido de 'directorio_1' y enviar
 
 Pero esto no nos sirve para sincronizar grandes cantidades de información, luego usamos rsync.   
 
-### **Instalando y usando la herramienta rsync   
+### Instalando y usando la herramienta rsync   
 ***
 
 Para instalar rsync en nuestras máquinas hay que ejecutar el siguiente comando:
@@ -51,7 +51,7 @@ Para ello debemos ejecutar:
 ![rsync excluyendo](imagenes/rsync-excluyendo.png)
 
 
-### **Acceder a SSH sin contraseña
+### Acceder a SSH sin contraseña
 ***
 
 Para poder acceder mediante SSH de una máquina a otra, lo que tenemos que hacer es generar un par de claves RSA. 
@@ -74,7 +74,7 @@ no nos pide contraseña.
 
 ![SSH copy id](imagenes/ssh-sin-password.png)
 
-### **Actualizar el contenido de /var/www/ con crontab
+### Actualizar el contenido de /var/www/ con crontab
 ***
 
 cron es un administrador de procesos en segundo plano que ejecuta procesos en el instante indicado en el fichero crontab.
