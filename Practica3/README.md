@@ -10,8 +10,8 @@ Para ello lo que he hecho ha sido:
 Lo primero que he hecho ha sido cambiar la opción de red: de red interna a adaptador puente.
 Y en `/etc/network/interfaces` cambiar el contenido de la red enp0s8 por el siguiente:
 
-`auto enp0s8       
- iface enp0s8 inet dhcp`
+	auto enp0s8       
+ 	iface enp0s8 inet dhcp
  
 Esto lo he hecho debido a que con la configuración de red interna tenía muchos fallos de servicio (networking),
 nginx me daba varios problemas y además para tener conexión con el anfitrión.
@@ -135,6 +135,7 @@ transferencia.
 
 Aquí podemos ver una comparación de tiempos:
 
-**Balanceador 	Tiempo total 	 Peticiones fallidas 	Peticiones/segundo 	Tiempo/Petición	    V.transf**
-nginx 		50.986 s 	 0	    		1765.20			283.253 ms	    582.66 Kbytes/sec
-haproxy 	31.877 s 	 0			2823.37 		177.094 ms          934.69 Kbytes/sec
+|Balanceador |Tiempo total |Peticiones fallidas |Peticiones/segundo |Tiempo/Petición |V.transf         |
+|------------|-------------|--------------------|-------------------|----------------|-----------------|
+|nginx 	     |50.986 s     |  0	    	        |1765.20            |283.253 ms      |582.66 Kbytes/sec|
+|haproxy     |31.877 s     |  0		        |2823.37 	    |177.094 ms      |934.69 Kbytes/sec|
