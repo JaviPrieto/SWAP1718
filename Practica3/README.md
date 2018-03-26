@@ -10,7 +10,7 @@ Para ello lo que he hecho ha sido:
 Lo primero que he hecho ha sido cambiar la opción de red: de red interna a adaptador puente.
 Y en `/etc/network/interfaces` cambiar el contenido de la red enp0s8 por el siguiente:
 
-`auto enp0s8
+`auto enp0s8       
  iface enp0s8 inet dhcp`
  
 Esto lo he hecho debido a que con la configuración de red interna tenía muchos fallos de servicio (networking),
