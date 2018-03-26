@@ -6,7 +6,7 @@ El objetivo de la práctica3 es aprender a configurar un balanceador que reparta
 
 Para ello lo que he hecho ha sido: 
 
-### **Reconfigurar la red entre máquinas
+### Reconfigurar la red entre máquinas
 ***
 
 Lo primero que he hecho ha sido cambiar la opción de red: de red interna a adaptador puente.
@@ -24,7 +24,7 @@ La nueva configuración de red y las nuevas IPs serían:
 	ubuntuserver2 :   192.168.1.111
 	balanceador   :   192.168.1.107
 
-### **Balancear la carga usando nginx 
+### Balancear la carga usando nginx 
 ***
 
 Para instalar nginx he ejecutado:
@@ -45,7 +45,7 @@ Para que nginx deje de funcionar como servidor y empieze a trabajar como balance
 `include /etc/nginx/sites-enabled/*;`
 
 
-### **Configurar nginx para balanceo ponderado
+### Configurar nginx para balanceo ponderado
 
 Usamos este tipo de balanceo si sabemos que alguna de las máquinas finales es más potente, para ello modificamos la definición del “upstream” de una de las máquinas para pasarle más tráfico que al resto de las del grupo. Para que esto sea posible tenemos el modificador “weight”, al que le damos un valor numérico distinto de 1 (valor por defecto).
 
@@ -70,7 +70,7 @@ Como podemos observar en el primer caso reparte la carga por igual, hace una pet
 como hemos dicho que la maquina1 tiene el doble de capacidad que la maquina2 en este caso el balanceador hace 2 peticiones a la maquina1 y 1 a la maquina2.
 
 
-### **Balancear la carga usando haproxy
+### Balancear la carga usando haproxy
 ***
 
 Para instalar haproxy he ejecutado:
@@ -96,7 +96,7 @@ Y a continuación mandamos peticiones desde el anfitrión y vemos como equirepar
 ![Configuracion haproxy](imagenes/curl-haproxy.png)
 
 
-### **Someter a una alta carga a la granja web
+### Someter a una alta carga a la granja web
 ***
 
 Para mandar peticiones con una determinada carga a nuestra granja web, he instalado Apache Benchmark (**ab**) en mi máquina anfitriona ejecutando:
