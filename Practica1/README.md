@@ -1,6 +1,6 @@
 # SWAP1718
 ## **Práctica1 : Preparación de las herramientas**    
-***
+
 El objetivo de la práctica1 es configurar dos máquinas (servidores) con Ubuntu Server para trabajar en prácticas posteriores.     
 
 Para ello lo que he hecho ha sido la instalación de dos máquinas Ubuntu Server en VirtualBox, con las opciones de servidor LAMP (Apache,MySQL,PHP) y SSH.    
