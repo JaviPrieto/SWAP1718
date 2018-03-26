@@ -1,6 +1,5 @@
 # SWAP1718
 ## **Práctica3 : Balanceo de carga**    
-***
 
 El objetivo de la práctica3 es aprender a configurar un balanceador que reparta la carga entre varios servidores finales conectados en una red, para solucionar el problema de la sobrecarga de los servidores. Así conseguimos una infraestructura redundante y de alta disponibilidad.     
 
@@ -8,7 +7,6 @@ Para ello lo que he hecho ha sido:
 
 ### Reconfigurar la red entre máquinas
 ***
-
 Lo primero que he hecho ha sido cambiar la opción de red: de red interna a adaptador puente.
 Y en `/etc/network/interfaces` cambiar el contenido de la red enp0s8 por el siguiente:
 
@@ -130,29 +128,13 @@ En este caso, con las mismas peticiones(90000), ha tardado 31.877 segundos en ha
 En este caso se han realizado 2823.37 pet/s, tardando 177.094 ms de media por petición y a una velocidad de transferencia de 934.69 Kbytes/sec.
 
 
-##Comparación de balanceadores
+## Comparación de balanceadores
 
 Como hemos observado los dos balanceadores han podido responder a todas las peticiones y ninguno se ha saturado, pero vemos un mejor rendimiento en **haproxy** debido a que los tiempos de respuestas son menores, tiene mayor tasa de pet/s y una mayor velocidad de
 transferencia.
 
 Aquí podemos ver una comparación de tiempos:
 
-**Balanceador 	Tiempo total 	 Peticiones fallidas 	Peticiones/segundo 	Tiempo/Petición	    Velocidad de transferencia**
+**Balanceador 	Tiempo total 	 Peticiones fallidas 	Peticiones/segundo 	Tiempo/Petición	    V.transf**
 nginx 		50.986 s 	 0	    		1765.20			283.253 ms	    582.66 Kbytes/sec
 haproxy 	31.877 s 	 0			2823.37 		177.094 ms          934.69 Kbytes/sec
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
