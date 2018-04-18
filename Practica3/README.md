@@ -14,7 +14,7 @@ La dirección de red en la que están todas las máquinas es: **192.168.1.0**
 
 En particular:
 	
-	ubuntuserver1 :   192.168.1.105
+	ubuntuserver1 :   192.168.1.50
 	ubuntuserver2 :   192.168.1.100
 	balanceador   :   192.168.1.107
 	peticiones    :   192.168.1.110
