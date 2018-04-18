@@ -13,6 +13,7 @@ Dejar claro que el tipo de red que tengo entre las máquinas es: red interna.
 La dirección de red en la que están todas las máquinas es: **192.168.1.0**
 
 En particular:
+	
 	ubuntuserver1 :   192.168.1.105
 	ubuntuserver2 :   192.168.1.100
 	balanceador   :   192.168.1.107
