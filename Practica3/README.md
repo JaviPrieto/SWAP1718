@@ -127,7 +127,7 @@ Para poner a prueba nuestro servidor con haproxy como balanceador de carga hemos
 ![AB-nginx](imagenes/htop-haproxy.png)
 
 
-### Comprobando con htop      
+### Salida del ab
 ![AB haproxy](imagenes/ab-haproxy.png)
 
 
