@@ -2,27 +2,22 @@
 ## **Práctica3 : Balanceo de carga**    
 ***
 
-El objetivo de la práctica3 es aprender a configurar un balanceador que reparta la carga entre varios servidores finales conectados en una red, para solucionar el problema de la sobrecarga de los servidores. Así conseguimos una infraestructura redundante y de alta disponibilidad.     
+El objetivo de la práctica 3 es aprender a configurar un balanceador que reparta la carga entre varios servidores finales conectados en una red, para solucionar el problema de la sobrecarga de los servidores. 
+Así conseguimos una infraestructura redundante y de alta disponibilidad.     
 
 Para ello lo que he hecho ha sido: 
 
-### **Reconfigurar la red entre máquinas
+### **Red de las máquinas
 ***
 
-Lo primero que he hecho ha sido cambiar la opción de red: de red interna a adaptador puente.
-Y en `/etc/network/interfaces` cambiar el contenido de la red enp0s8 por el siguiente:
+Dejar claro que el tipo de red que tengo entre las máquinas es: red interna.
+La dirección de red en la que están todas las máquinas es: **192.168.1.0**
 
-`auto enp0s8`
-`iface enp0s8 inet dhcp`
- 
-Esto lo he hecho debido a que con la configuración de red interna tenía muchos fallos de servicio (networking),
-nginx me daba varios problemas y además para tener conexión con el anfitrión.
-
-La nueva configuración de red y las nuevas IPs serían:
-
+En particular:
 	ubuntuserver1 :   192.168.1.105
-	ubuntuserver2 :   192.168.1.111
+	ubuntuserver2 :   192.168.1.100
 	balanceador   :   192.168.1.107
+	peticiones    :   192.168.1.110
 
 ### **Balancear la carga usando nginx 
 ***
@@ -106,28 +101,36 @@ Para mandar peticiones con una determinada carga a nuestra granja web, he instal
 
 ## nginx
 
-Para probar nuestra granja web con un balanceador nginx, vamos a lanzar 90000 peticiones de 500 en 500 con apache benchmark a nuestro balanceador, pidiendo la página hola.html
+Para probar nuestra granja web con un balanceador nginx, vamos a lanzar 90000 peticiones de 10 en 10 con apache benchmark a nuestro balanceador, pidiendo la página hola.html
 
-`ab -n 90000 -c 500 http://192.168.1.107/hola.html`
+`ab -n 90000 -c 10 http://192.168.1.107/hola.html`
 
+**Comprobando con htop**
+![AB-nginx](imagenes/htop-nginx.png)
+
+**Salida del ab**
 ![AB nginx](imagenes/ab-nginx.png)
 
-En este caso, he realizado 90000 peticiones al servidor, donde ha tardado 50.986 segundos en hacer el test completo, no ha habido peticiones fallidas lo que quiere decir que el servidor no se ha saturado al realizar este test.
+En este caso, he realizado 90000 peticiones al servidor, donde ha tardado 63.721 segundos en hacer el test completo, no ha habido peticiones fallidas lo que quiere decir que el servidor no se ha saturado al realizar este test.
 
-Podemos observar como es capaz de atender 1765.20 peticiones por segundo, tardando unos 283.253 ms de media por petición y a una velocidad de transferencia de 582.66 Kbytes/sec.
+Podemos observar como es capaz de atender 1412.40 peticiones por segundo, tardando unos 7.080 ms de media por petición y a una velocidad de transferencia de 466.20 Kbytes/sec.
 
 
 ## haproxy
 
-Para poner a prueba nuestro servidor con haproxy como balanceador de carga hemos hecho 90000 peticiones haciendo las peticiones de 500 en 500. (Igual que con nginx)
+Para poner a prueba nuestro servidor con haproxy como balanceador de carga hemos hecho 90000 peticiones haciendo las peticiones de 10 en 10. (Igual que con nginx)
 
-`ab -n 90000 -c 500 http://192.168.1.107/hola.html`
+`ab -n 90000 -c 10 http://192.168.1.107/hola.html`
 
+**Comprobando con htop**
+![AB-nginx](imagenes/htop-haproxy.png)
+
+**Comprobando con htop**
 ![AB haproxy](imagenes/ab-haproxy.png)
 
-En este caso, con las mismas peticiones(90000), ha tardado 31.877 segundos en hacer el test completo, no ha habido fallos, luego el servidor no se ha saturado.
+En este caso, con las mismas peticiones(90000), ha tardado 53.685 segundos en hacer el test completo, no ha habido fallos, luego el servidor no se ha saturado.
 
-En este caso se han realizado 2823.37 pet/s, tardando 177.094 ms de media por petición y a una velocidad de transferencia de 934.69 Kbytes/sec.
+En este caso se han realizado 1676.46 pet/s, tardando 5.965 ms de media por petición y a una velocidad de transferencia de 555.00 Kbytes/sec.
 
 
 ##Comparación de balanceadores
@@ -138,8 +141,8 @@ transferencia.
 Aquí podemos ver una comparación de tiempos:
 
 **Balanceador 	Tiempo total 	 Peticiones fallidas 	Peticiones/segundo 	Tiempo/Petición	    Velocidad de transferencia**
-nginx 		50.986 s 	 0	    		1765.20			283.253 ms	    582.66 Kbytes/sec
-haproxy 	31.877 s 	 0			2823.37 		177.094 ms          934.69 Kbytes/sec
+nginx 		63.721 s 	 0	    		1412.40			7.080 ms	    466.20 Kbytes/sec
+haproxy 	53.685 s 	 0			1676.46 		5.965 ms            555.00 Kbytes/sec
 		
 
 
