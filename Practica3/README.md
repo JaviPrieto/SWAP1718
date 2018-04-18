@@ -49,7 +49,7 @@ Cambiando el nivel de carga. (La máquina1 tiene el doble de capacidad que la m�
 ![Nivel de carga](imagenes/carga-ponderada.png)
 
 
-Para comprobar las diferencias entre los balanceos, hago peticiones mediante curl a la ip del balanceador. (192.168.1.107)
+Para comprobar las diferencias entre los balanceos, hago peticiones mediante curl (desde la máquina peticiones) a la ip del balanceador. (192.168.1.107)
 
 
 ### Funcionamiento balanceo Round-Robin
@@ -86,18 +86,13 @@ Para lanzar haproxy una vez hemos cambiando su configuración ejecutamos el sigu
 
 `sudo /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg`
 
-Y a continuación mandamos peticiones desde el anfitrión y vemos como equireparte la carga entre ambas máquinas finales.
+Y a continuación le mandamos peticiones y vemos como equireparte la carga entre ambas máquinas finales.
 
 ![Configuracion haproxy](imagenes/curl-haproxy.png)
 
 
 ### Someter a una alta carga a la granja web
 ***
-
-Para mandar peticiones con una determinada carga a nuestra granja web, he instalado Apache Benchmark (**ab**) en mi máquina anfitriona ejecutando:
-
-`sudo apt–get install –y apache2`
-
 
 ## nginx
 
