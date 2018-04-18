@@ -1,17 +1,19 @@
 # SWAP1718
 ## **Práctica3 : Balanceo de carga**    
+***
 
 El objetivo de la práctica3 es aprender a configurar un balanceador que reparta la carga entre varios servidores finales conectados en una red, para solucionar el problema de la sobrecarga de los servidores. Así conseguimos una infraestructura redundante y de alta disponibilidad.     
 
 Para ello lo que he hecho ha sido: 
 
-### Reconfigurar la red entre máquinas
+### **Reconfigurar la red entre máquinas
 ***
+
 Lo primero que he hecho ha sido cambiar la opción de red: de red interna a adaptador puente.
 Y en `/etc/network/interfaces` cambiar el contenido de la red enp0s8 por el siguiente:
 
-	auto enp0s8       
- 	iface enp0s8 inet dhcp
+`auto enp0s8`
+`iface enp0s8 inet dhcp`
  
 Esto lo he hecho debido a que con la configuración de red interna tenía muchos fallos de servicio (networking),
 nginx me daba varios problemas y además para tener conexión con el anfitrión.
@@ -22,7 +24,7 @@ La nueva configuración de red y las nuevas IPs serían:
 	ubuntuserver2 :   192.168.1.111
 	balanceador   :   192.168.1.107
 
-### Balancear la carga usando nginx 
+### **Balancear la carga usando nginx 
 ***
 
 Para instalar nginx he ejecutado:
@@ -43,7 +45,7 @@ Para que nginx deje de funcionar como servidor y empieze a trabajar como balance
 `include /etc/nginx/sites-enabled/*;`
 
 
-### Configurar nginx para balanceo ponderado
+### **Configurar nginx para balanceo ponderado
 
 Usamos este tipo de balanceo si sabemos que alguna de las máquinas finales es más potente, para ello modificamos la definición del “upstream” de una de las máquinas para pasarle más tráfico que al resto de las del grupo. Para que esto sea posible tenemos el modificador “weight”, al que le damos un valor numérico distinto de 1 (valor por defecto).
 
@@ -68,7 +70,7 @@ Como podemos observar en el primer caso reparte la carga por igual, hace una pet
 como hemos dicho que la maquina1 tiene el doble de capacidad que la maquina2 en este caso el balanceador hace 2 peticiones a la maquina1 y 1 a la maquina2.
 
 
-### Balancear la carga usando haproxy
+### **Balancear la carga usando haproxy
 ***
 
 Para instalar haproxy he ejecutado:
@@ -94,7 +96,7 @@ Y a continuación mandamos peticiones desde el anfitrión y vemos como equirepar
 ![Configuracion haproxy](imagenes/curl-haproxy.png)
 
 
-### Someter a una alta carga a la granja web
+### **Someter a una alta carga a la granja web
 ***
 
 Para mandar peticiones con una determinada carga a nuestra granja web, he instalado Apache Benchmark (**ab**) en mi máquina anfitriona ejecutando:
@@ -128,14 +130,29 @@ En este caso, con las mismas peticiones(90000), ha tardado 31.877 segundos en ha
 En este caso se han realizado 2823.37 pet/s, tardando 177.094 ms de media por petición y a una velocidad de transferencia de 934.69 Kbytes/sec.
 
 
-## Comparación de balanceadores
+##Comparación de balanceadores
 
 Como hemos observado los dos balanceadores han podido responder a todas las peticiones y ninguno se ha saturado, pero vemos un mejor rendimiento en **haproxy** debido a que los tiempos de respuestas son menores, tiene mayor tasa de pet/s y una mayor velocidad de
 transferencia.
 
 Aquí podemos ver una comparación de tiempos:
 
-|Balanceador |Tiempo total |Peticiones fallidas |Peticiones/segundo |Tiempo/Petición |V.transf         |
-|------------|-------------|--------------------|-------------------|----------------|-----------------|
-|nginx 	     |50.986 s     |  0	    	        |1765.20            |283.253 ms      |582.66 Kbytes/sec|
-|haproxy     |31.877 s     |  0		        |2823.37 	    |177.094 ms      |934.69 Kbytes/sec|
+**Balanceador 	Tiempo total 	 Peticiones fallidas 	Peticiones/segundo 	Tiempo/Petición	    Velocidad de transferencia**
+nginx 		50.986 s 	 0	    		1765.20			283.253 ms	    582.66 Kbytes/sec
+haproxy 	31.877 s 	 0			2823.37 		177.094 ms          934.69 Kbytes/sec
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
