@@ -32,7 +32,7 @@ Para comprobar que lo hemos instalado correctamente al igual que con apache ejec
 ![rsync instalado](imagenes/rsync-v.png)
 
 Una vez hecho esto, vamos a copiar el directorio */var/www/* de la maquina1 a la maquina2, para ello ejecutamos en la maquina2
-el siguiente comando: 
+el siguiente comando:  
 
 `rsync -avz -e ssh javi@192.168.1.50:/var/www/ /var/www/`
 
