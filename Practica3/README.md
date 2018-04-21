@@ -21,7 +21,7 @@ En particular:
 
 ### Balancear la carga usando nginx 
 ***
-
+ 
 Para instalar nginx he ejecutado:
 
 `sudo apt-get install nginx`
