@@ -52,7 +52,7 @@ En primer lugar para ver el estado del cortafuegos ejecutamos: `iptables -L -n -
 
 Como vemos se acepta todo el tráfico ya que aún no hay ninguna regla definida.    
 
-###IPTABLES
+### IPTABLES
 
 Como vemos iptables tiene muchas funcionalidades para establecer reglas, filtrar tipos de tráfico o bien controlar el acceso a ciertas páginas.    
 Algunas de ellas pueden ser:
@@ -112,7 +112,7 @@ Por último para comprobar el funcionamiento del cortafuegos y ver que puertos h
 ![Comprobar-funcionamiento](imagenes/comprobar-funcionamiento.png)
 
 
-###SCRIPT
+### SCRIPT
 
 Lo habitual es crear un script que se ejecute en el arranque del sistema.    
 
