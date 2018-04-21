@@ -29,7 +29,7 @@ Haciendo: `ifconfig -a`
 Una vez instalado los servidores y cambiadas la configuración de su red, comprobamos la versión del servidor y que apache está ejecutandose:
 
 ![Apache](imagenes/apache.png)
-
+ 
 Para ver que Apache está funcionando, usando un editor de texto plano, crearemos el archivo HTML llamado hola.html en el directorio /var/www/html. Y mediante curl accedemos a el.
 
 ![cURL](imagenes/curl.png)
