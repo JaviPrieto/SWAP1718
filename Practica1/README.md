@@ -18,7 +18,7 @@ Como resultado en cada máquina aparecen dos interfaces de red:
 
 Despues he asignado la IP fija a la interfaz enp0s8.   
 Mediante : `sudo nano /etc/network/interfaces` 
-
+  
 ![Configuracion de red](imagenes/etc-network-interfaces.png)
 
 Una vez hecho este cambio debemos reiniciar y obtendremos las siguientes interfaces de red.    
