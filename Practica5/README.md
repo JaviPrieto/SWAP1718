@@ -86,12 +86,17 @@ Para ello debemos realizar lo siguiente:
 
 -Con esto concluimos la configuración maestro-esclavo. Si añadimos un dato al maestro, este cambio se verá reflejado en el esclavo.
 
-
-!!! ESTA PARTE NO FUNCIONA
 ![sincronizacion-maestro-esclavo](imagenes/sincronizacion-maestro-esclavo.png)
 
 
+### Opcional: Configuración maestro-maestro
+***
 
+Como parte opcional he realizado la configuración maestro-maestro que consiste en lo hecho anteriormente, pero en este caso al revés.   
+
+Y como podemos observar en la siguiente imagen se hace la sincronización en sentido inverso:
+
+![sincronizacion-maestro-maestro](imagenes/sincronizacion-maestro-maestro.png)
 
 
 
